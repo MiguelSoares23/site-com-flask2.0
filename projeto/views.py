@@ -11,7 +11,6 @@ def homepage():
 
 @app.route('/teste', methods=['GET', "POST"])
 def teste():
-    form = Testeform()
     context = {}
     if request.method == "POST":
         nome = request.form['nome']
@@ -34,6 +33,7 @@ def teste():
 
 @app.route('/teste_old', methods=['GET', "POST"])
 def teste_old():
+    form = Testeform()
     context = {}
     if request.method == "GET":
         pesquisa = request.args.get('pesquisa')
