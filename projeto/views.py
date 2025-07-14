@@ -2,15 +2,16 @@ from projeto import app, db
 from flask import render_template, url_for, request
 
 from projeto.models import Teste
-from projeto.forms import Testeform
+from projeto.forms import TesteForm
 
 @app.route('/')
 def homepage():
     return render_template('index.html')
 
 
-@app.route('/teste', methods=['GET', "POST"])
+@app.route('/teste_old', methods=['GET', "POST"])
 def teste():
+    form = TesteForm()
     context = {}
     if request.method == "POST":
         nome = request.form['nome']
@@ -27,13 +28,12 @@ def teste():
         db.session.add(teste)
         db.session.commit()
 
-    return render_template('teste.html', context=context)
+    return render_template('teste.html', context=context,  form=form)
 
 #formato antigo(incorreto)
 
 @app.route('/teste_old', methods=['GET', "POST"])
 def teste_old():
-    form = Testeform()
     context = {}
     if request.method == "GET":
         pesquisa = request.args.get('pesquisa')
@@ -54,4 +54,4 @@ def teste_old():
         db.session.add(teste)
         db.session.commit()
 
-    return render_template('teste_old.html', context=context, form=form)
+    return render_template('teste_old.html', context=context)
