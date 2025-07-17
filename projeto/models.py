@@ -9,3 +9,9 @@ class Teste(db.Model):
     assunto = db.Column(db.String, nullable=True)
     mensagem = db.Column(db.String, nullable=True)
     
+
+class ItensBazar(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(100), nullable=False)
+    tamanho = db.Column(db.String(50), nullable=False)
+    tipo = db.Column(db.String(50), nullable=False)

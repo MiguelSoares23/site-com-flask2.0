@@ -12,3 +12,4 @@ migrate = Migrate(app, db)
 
 from projeto.views import homepage
 from projeto.models import Teste
+from projeto.models import ItensBazar

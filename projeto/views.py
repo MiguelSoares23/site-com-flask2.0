@@ -1,8 +1,9 @@
 from projeto import app, db
-from flask import render_template, url_for, request
+from flask import render_template, url_for, request, redirect
 
 from projeto.models import Teste
 from projeto.forms import Testeform
+from projeto.forms import ItensBazarform
 
 @app.route('/')
 def homepage():
@@ -28,7 +29,20 @@ def teste():
         db.session.add(teste)
         db.session.commit()
 
-    return render_template('teste.html', context=context)
+    return render_template('teste.html', context=context, form=form)
+
+############################################################################
+
+@app.route('/ItensBazar', methods=["GET", "POST"])
+def itensBazar():
+    form = ItensBazarform()
+    context = {}
+    if form.validate_on_submit():
+        form.save()
+        return redirect(url_for('homepage'))
+    
+    return render_template('ItensBazar.html', context=context, form=form)
+
 
 #formato antigo(incorreto)
 
@@ -54,4 +68,4 @@ def teste_old():
         db.session.add(teste)
         db.session.commit()
 
-    return render_template('teste_old.html', context=context, form=form)
+    return render_template('teste_old.html', context=context)
