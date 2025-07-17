@@ -2,5 +2,8 @@ Flask==2.3.3
 Flask-WTF==1.1.0
 Flask-SQLAlchemy==3.1.1
 Flask-Migrate==4.0.5
+<<<<<<< HEAD
 werkzeug==2.3.8
+=======
+>>>>>>> 2438c21e811e21400253cca18e66d2ab1b5165e3
 email_validator
