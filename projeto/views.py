@@ -2,12 +2,8 @@ from projeto import app, db
 from flask import render_template, url_for, request, redirect
 
 from projeto.models import Teste
-<<<<<<< HEAD
 from projeto.forms import Testeform
 from projeto.forms import ItensBazarform
-=======
-from projeto.forms import TesteForm
->>>>>>> 2438c21e811e21400253cca18e66d2ab1b5165e3
 
 @app.route('/')
 def homepage():
@@ -22,7 +18,6 @@ def teste():
         form.save()
         return redirect(url_for('homepage'))
 
-<<<<<<< HEAD
     return render_template('teste.html', context=context, form=form)
 
 ############################################################################
@@ -37,9 +32,6 @@ def itensBazar():
     
     return render_template('ItensBazar.html', context=context, form=form)
 
-=======
-    return render_template('teste.html', context=context,  form=form)
->>>>>>> 2438c21e811e21400253cca18e66d2ab1b5165e3
 
 #formato antigo(incorreto)
 
